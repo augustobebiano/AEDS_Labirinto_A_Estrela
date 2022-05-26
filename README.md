@@ -44,17 +44,53 @@
 * Por fim é impresso a matriz com o caminho percorrido
 
 # Relatorio
-* Um relatório contemplando uma discussão comparativa entre BFS, DFS e A*. Espera-se que este documento apresente fatores comparativos de velocidade de execução e quantidade de passos para a finalização do labirinto.
-
-Foi observado que dentre as 
-
-
-
-
- * Além disso, espera-se que cada dupla aprofunde em uma apresentação adequada do modelo de funcionamento de cada um e os motivos que tornam uma das soluções a melhor opção 
-
 ## BFS
-#### Breadth First Search (BFS) é o método de deslocamento usado nos gráficos. Ele usa uma fila para armazenar os vértices visitados. Neste método a ênfase está nos vértices do gráfico, um vértice é selecionado no início, então é visitado e marcado. Os vértices adjacentes ao vértice visitado são então visitados e armazenados na fila sequencialmente. Da mesma forma, os vértices armazenados são então tratados um por um, e seus vértices adjacentes são visitados. Um nó é totalmente explorado antes de visitar qualquer outro nó no gráfico, em outras palavras, ele percorre os nós inexplorados mais rasos primeiro.
+#### Breadth First Search (BFS) é o método de deslocamento usado na matriz. Ele usa uma fila para armazenar os vértices visitados. Neste método a ênfase está nos vértices da matriz, um vértice é selecionado no início, então é visitado e marcado. Os vértices adjacentes ao vértice visitado são então visitados de modo que se pareça com uma **onda** e armazenados  na fila sequencialmente. Da mesma forma, os vértices armazenados são então tratados um por um, e seus vértices adjacentes são visitados. Uma posição é totalmente explorada antes de visitar qualquer outra posição na matriz, em outras palavras, ele percorre as posições inexploradas mais rasas primeiro.
+* **O BFS é o melhor em encontrar o caminho mais curto na matriz que pode ser visto como uma rede, porém seu custo continua alto.**
+## DFS
+#### O método de deslocamento DFS (Depth First Search) usa a pilha para armazenar os vértices visitados. O DFS é o método baseado em linhas e funciona de maneira recursiva, em que os vértices são explorados ao longo de um caminho (linha). A exploração de uma posição é suspensa assim que outra posição inexplorada é encontrada e as posições mais inexploradas mais profundas são percorridas antes de tudo. DFS atravessar / visitar cada vértice exatamente uma vez e cada borda é inspecionada exatamente duas vezes.
+* **A vantagem do DFS é que ele consome muito menos espaço de memória e ele alcançará a posição objetivo em um período de tempo menor que o BFS se percorrer um caminho certo.** 
+## BFS x DFS
+Base para comparação    | BFS | 	DFS
+--------- | ------ | -------
+Basic| 	Algoritmo baseado em vértices | 	Algoritmo baseado em borda
+Estrutura de dados usada para armazenar os nós | Fila | 	Pilha
+Consumo de memória	| Ineficiente | Eficiente
+Estrutura do caminho construído | Largo e curto | 	Estreito e longo
+Modo de caminhar | Vértices não visitados mais antigos são explorados em primeiro lugar. | Vértices ao longo da borda são explorados no começo.
+## A* 
+#### **A*** é um algoritmo de busca que é usado para encontrar o caminho mais curto entre um ponto inicial e um ponto final.
+#### Ele procura por caminhos mais curtos primeiro, tornando-o um algoritmo ideal e completo. Um algoritmo ótimo encontrará o resultado de menor custo para um problema, enquanto outro algoritmo encontrará todos os resultados possíveis de um problema.
+#### Inicialmente, o Algoritmo calcula o custo para todos os nós vizinhos imediatos, e escolhe aquele de menor custo. Esse processo se repete até que nenhum novo nó possa ser escolhido e todos os caminhos tenham sido percorridos.
+#### O algoritmo funciona de maneira que tem alguma estimativa (chamada **heurística**) de quão longe do objetivo está qualquer vértice. Em vez de selecionar o vértice mais próximo do ponto de partida, ele seleciona o vértice mais próximo do objetivo.  
+## A* x BFS
+#### O BFS sempre encontrará o caminho mais curto entre o nó inicial e um nó de destino. Além disso, o BFS encontrará o caminho mais curto entre o nó inicial e todos os outros nós do grafo. No entanto, o algoritmo pode ser ineficiente, pois 'perderá tempo' avaliando rotas que podem ser ignoradas.
+
+#### O algoritmo A* é mais eficiente que o BFS. Ao usar uma função heurística para fornecer uma estimativa do custo do caminho entre cada nó e o nó de destino, ele pode fazer melhores escolhas sobre o próximo caminho a seguir e encontrar o caminho mais curto mais rapidamente.
+
+#### O maior desafio na seleção de A* é a necessidade de uma boa função heurística. O tempo que leva para fornecer a heurística não deve anular nenhuma economia de tempo no processo de busca de caminhos. Além disso, a heurística não deve superestimar o custo do caminho. Se h(n) for sempre menor que (ou igual) ao custo de se mover de n para o nó de destino, então A* terá a garantia de encontrar o caminho mais curto.
+
+## Conclusão
+#### BFS e DFS, ambas as técnicas de busca de matrizes têm tempo de execução semelhante, mas consumo de espaço diferente, o DFS ocupa espaço linear porque temos que lembrar um único caminho com nós inexplorados, enquanto o BFS mantém todos os nós na memória.
+
+#### O DFS produz soluções mais profundas e não é o ideal, mas funciona bem quando a solução é densa, enquanto o BFS é o ideal, que busca primeiro o objetivo ideal.
+#### Já o A* consegue produzir o melhor caminho e ser mais eficiente que todos os outros devido o uso de heurísticas.
+
+## Resultados
+### Foi observado que dentre os metodos utilizados (BFS, DFS e A*) foram obtidos os seguintes resultados para a mesma matriz e os mesmos obstaculos:
+*obs: os resultados são baseados no numero de interações, as mesmas sendo contabilizadas na forma especificada na aba "Interacoes" do readme.*
+
+**Matriz 10x10** 
+
+**Obstáculo: [3,3]**
+
+
+Metodo   | Resultado
+--------- | ------
+DFS | 19 interações
+BFS | 99 interações
+A* (manhattan) | 35 interações
+A* (euclidiâna) | 37 interações
 # Entrada
 ### A entrada do usuário é feito no arquivo _gameconfig.txt_ e segue a seguinte estrutura:
 Linha   | variavel
