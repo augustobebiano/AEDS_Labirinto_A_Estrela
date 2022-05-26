@@ -1,4 +1,5 @@
-#include "lista.h"
+#include "fila.h"
+#include "pilha.h"
 #include "matriz.h"
 
 Matriz* criar_matriz(int rows, int cols){
@@ -107,16 +108,36 @@ Matriz* TokenizerM(FILE *ptr){
     return m1;
 }
 
-void Inicial(Matriz *m){
-    int n = 0;
-	while(n!=1 && n!=2){
-		printf("Defina a heurística a ser utilizada (1 para Manhattan e 2 para Euclidiana): ");
-		scanf("%d", &n);
-		if(n!=1 && n!=2){
-			printf("Número inválido.\n");
-		}
-	}
-    Lista *l = malloc(sizeof(Lista));
-    FLVazia(l);
-    AEstrela(l, m, n);
+void TipoCaminho(Matriz *m){
+    int t = 0, n = 0;
+    Pilha *p = malloc(sizeof(Pilha));
+    Fila *l = malloc(sizeof(Fila));
+    while(t!=1 && t!=2 && t!=3){
+        printf("Defina o método a ser utilizado para percorrer a matriz (1 para DFS, 2 para BFS e 3 para A*): ");
+		scanf("%d", &t);
+        switch(t){
+            case 1:
+                FPVazia(p);
+                DFS(p, m);
+                break;
+            case 2:
+                FFVazia(l);
+                BFS(l, m, n);
+                break;
+            case 3:
+                while(n!=1 && n!=2){
+                    printf("Defina a heurística a ser utilizada (1 para Manhattan e 2 para Euclidiana): ");
+                    scanf("%d", &n);
+                    if(n!=1 && n!=2){
+                        printf("Número inválido.\n");
+                    }
+                }
+                FFVazia(l);
+                BFS(l, m, n);
+                break;
+            default:
+                printf("Método inválido. ");
+                break;
+        }
+    }
 }

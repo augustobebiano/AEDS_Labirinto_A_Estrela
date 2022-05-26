@@ -8,6 +8,11 @@
 
 #define MAXC 1024
 
+typedef struct SearchType{
+    char searchtype[20];
+}SearchType;
+
+
 struct Matriz {
     int rows;
     int cols;
@@ -20,8 +25,7 @@ Matriz* criar_matriz(int rows, int cols);
 Matriz* preenche_matriz(int rows, int cols);
 void print_matriz(Matriz* m);
 Matriz* TokenizerM(FILE *ptr);
-void Inicial(Matriz *m);
-
+void TipoCaminho(Matriz *m);
 
  
 

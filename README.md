@@ -1,4 +1,4 @@
-<h1 align="center">Solving Maze (DFS / BFS)</h1>
+<h1 align="center">A*</h1>
 
 
 <p align="center">Grupo: Gabriel Mesquita || Augusto Bebiano</p>
@@ -10,6 +10,7 @@
 <p align="center">
   <a href="#problema">Problema</a> -
   <a href="#desenvolvimento">Desenvolvimento</a> -
+  <a href="#relatorio">Relatorio</a> -
   <a href="#entrada">Entrada</a> -
   <a href="#interacoes">Interacoes</a> -
   <a href="#saida">Saida</a> -
@@ -18,19 +19,9 @@
  
 
 # Problema
-### Regras
-1. O jogo deve ser elaborado utilizando um arquivo de configuração. Nele deve conter: (a) tamanho da matriz; (b) posições das paredes e; (c) tipo de busca.
-1. O jogo termina assim que for atingido o alvo.
-1. É preciso imprimir o caminho em tela sob uma representação de matriz. Então, imprima conforme o exercício de matriz já realizado.
-
-  ![image](https://user-images.githubusercontent.com/55333375/169049899-b17b7be9-8a69-4b39-8b7e-d7464130bb87.png)
-
-
-### Perguntas
-* Para diferentes tamanhos de matriz e posicionamento de paredes, há predominância de um dos dois algoritmos em termos de casas caminhadas e tempo de execução?
-* R: **Há predominancia do BFS em numero de interações e casas caminhadas, pois sendo um metodo que caminha em ondas a maioria das matrizes é percorrida quase inteira**
-* Um dos dois algoritmos consegue encontrar o melhor caminho, ou seja, o com menor número de passos?
-* R: **Depende, se levarmos em consideração somente os dois o DFS é o que encontra o melhor caminho, porém se compararmos outros algaritmos nenhum dos dois consegue ser o melhor em termos de menor numero de passos**
+### Cada dupla de alunos deve entregar um trabalho contemplando as modificações necessárias do BFS para torna-lo um algoritmo heurístico, chamado A*. Nessa etapa do trabalho é de responsabilidade de cada dupla: 
+* Entregar a codificação devidamente elaborada sob o modelo de execução estabelecido, bem como, a comparação do algoritmo A* para as heurísticas euclidiâna e manhattan 
+* Um relatório contemplando uma discussão comparativa entre BFS, DFS e A*. Espera-se que este documento apresente fatores comparativos de velocidade de execução e quantidade de passos para a finalização do labirinto. Além disso, espera-se que cada dupla aprofunde em uma apresentação adequada do modelo de funcionamento de cada um e os motivos que tornam uma das soluções a melhor opção.
 
 # Desenvolvimento
 ### O problema foi desenvolvido da seguinte maneira:
@@ -45,25 +36,32 @@
 * ![image](https://user-images.githubusercontent.com/55333375/167706445-478ff54e-dc10-482c-a0a5-ccbca8d0e7f6.png)
 
 * É feito a abertura do arquivo por meio do **fopen()** e depois tokenizado pela função **TokenizerM()**, dentro dessa função a primeira coisa sendo feita é a tokenização do tamanho da matriz, da posição dos obstaculos e do tipo de busca, e por fim iniciado a matriz de acordo com os parametros e retornando a mesma.
-![image](https://user-images.githubusercontent.com/55333375/169050608-887c45c1-2866-4355-9179-97e663b8ff0a.png)
-![image](https://user-images.githubusercontent.com/55333375/169050955-d566d211-5d66-4aae-964f-9844bcf0432f.png)
-
-
-
 * Depois é executado a função **TipoCaminho()**
-* Dentro da função é feito a passagem de um if/else com o tipo de busca especificado no arquivo de texto  para determinar o método a ser executado, por fim é executado o método escolhido.
+* Dentro da função é feito a passagem de um if/else com o tipo de busca especificado pelo usuario para determinar o método a ser executado, **se for escolhido o A estrela vai ser requisitado qual heuristica a ser utilizada (manhattan / euclidiâna)**  e por fim é executado o método escolhido.
 
 ![image](https://user-images.githubusercontent.com/55333375/169051182-a70aa339-8f9a-49bd-98d2-1e13291ace08.png)
 
 * Por fim é impresso a matriz com o caminho percorrido
 
+# Relatorio
+* Um relatório contemplando uma discussão comparativa entre BFS, DFS e A*. Espera-se que este documento apresente fatores comparativos de velocidade de execução e quantidade de passos para a finalização do labirinto.
+
+Foi observado que dentre as 
+
+
+
+
+ * Além disso, espera-se que cada dupla aprofunde em uma apresentação adequada do modelo de funcionamento de cada um e os motivos que tornam uma das soluções a melhor opção 
+
+## BFS
+#### Breadth First Search (BFS) é o método de deslocamento usado nos gráficos. Ele usa uma fila para armazenar os vértices visitados. Neste método a ênfase está nos vértices do gráfico, um vértice é selecionado no início, então é visitado e marcado. Os vértices adjacentes ao vértice visitado são então visitados e armazenados na fila sequencialmente. Da mesma forma, os vértices armazenados são então tratados um por um, e seus vértices adjacentes são visitados. Um nó é totalmente explorado antes de visitar qualquer outro nó no gráfico, em outras palavras, ele percorre os nós inexplorados mais rasos primeiro.
 # Entrada
 ### A entrada do usuário é feito no arquivo _gameconfig.txt_ e segue a seguinte estrutura:
 Linha   | variavel
 --------- | ------
 1 | ( l x c ) -> Tamanho da matriz
 2 | ( l x c ) , ( l x c ) , ... -> Posições dos obstaculos
-3 | Tipo de busca
+
 
 ![image](https://user-images.githubusercontent.com/55333375/169051599-1ae89acc-3e9b-420a-ad42-a2a76e61ded1.png)
 
