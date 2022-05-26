@@ -39,7 +39,7 @@
 * Depois é executado a função **TipoCaminho()**
 * Dentro da função é feito a passagem de um if/else com o tipo de busca especificado pelo usuario para determinar o método a ser executado, **se for escolhido o A estrela vai ser requisitado qual heuristica a ser utilizada (manhattan / euclidiâna)**  e por fim é executado o método escolhido.
 
-![image](https://user-images.githubusercontent.com/55333375/169051182-a70aa339-8f9a-49bd-98d2-1e13291ace08.png)
+![image](https://user-images.githubusercontent.com/55333375/170543988-20a617b4-c1b6-4883-950a-67a49c82121f.png)
 
 * Por fim é impresso a matriz com o caminho percorrido
 
@@ -91,6 +91,19 @@ DFS | 19 interações
 BFS | 99 interações
 A* (manhattan) | 35 interações
 A* (euclidiâna) | 37 interações
+
+![image](https://user-images.githubusercontent.com/55333375/170544912-4444b012-f2ff-49fc-a842-89f47e8f1a22.png)
+
+![image](https://user-images.githubusercontent.com/55333375/170545046-0b127c2e-5f30-4067-9790-161de396b6ce.png)
+
+![image](https://user-images.githubusercontent.com/55333375/170545104-9a120d07-dd09-48d8-b813-cdbbd5e1cad0.png)
+
+![image](https://user-images.githubusercontent.com/55333375/170545177-691564f8-1cd5-43ed-b0b1-19302cae29ee.png)
+
+![image](https://user-images.githubusercontent.com/55333375/170545252-7d46ef2e-02cb-4ef4-87cd-6fc6b9f4a9f3.png)
+
+
+
 # Entrada
 ### A entrada do usuário é feito no arquivo _gameconfig.txt_ e segue a seguinte estrutura:
 Linha   | variavel
@@ -99,7 +112,7 @@ Linha   | variavel
 2 | ( l x c ) , ( l x c ) , ... -> Posições dos obstaculos
 
 
-![image](https://user-images.githubusercontent.com/55333375/169051599-1ae89acc-3e9b-420a-ad42-a2a76e61ded1.png)
+![image](https://user-images.githubusercontent.com/55333375/170544365-c7d0070b-566e-4587-9af6-45401050c54f.png)
 
 
 # Interacoes
